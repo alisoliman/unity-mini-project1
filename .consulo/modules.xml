@@ -88,6 +88,7 @@
         <module-layer name="Default">
           <extension id="unity3d-child" />
           <extension id="unity3d-csharp-child" unsafe-code="false" language-version-module-name="" language-version-name="" />
+          <content url="file://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Scripts/Rotator.cs" />
           <content url="file://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Scripts/CameraController.cs" />
           <content url="file://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Scripts/Intro.cs" />
           <content url="file://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Scripts/PlayerController.cs" />
