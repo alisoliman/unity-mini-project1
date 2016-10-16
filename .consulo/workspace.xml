@@ -5,9 +5,10 @@
     <ignored path=".consulo/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <file path="/Intro.cs" changelist="153499cd-d13e-4978-bd28-5e7ff5d6beb4" time="1476576129018" ignored="false" />
-    <file path="/PlayerController.cs" changelist="153499cd-d13e-4978-bd28-5e7ff5d6beb4" time="1476597831546" ignored="false" />
+    <file path="/PlayerController.cs" changelist="153499cd-d13e-4978-bd28-5e7ff5d6beb4" time="1476657309046" ignored="false" />
     <file path="/CameraController.cs" changelist="153499cd-d13e-4978-bd28-5e7ff5d6beb4" time="1476581784489" ignored="false" />
     <file path="/Rotator.cs" changelist="153499cd-d13e-4978-bd28-5e7ff5d6beb4" time="1476596257925" ignored="false" />
+    <file path="/GameManager.cs" changelist="153499cd-d13e-4978-bd28-5e7ff5d6beb4" time="1476656127570" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,9 +43,23 @@
       <file leaf-file-name="PlayerController.cs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
-              <folding />
+            <state relative-caret-position="330">
+              <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GameManager.cs" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="9">
+              <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+              <folding>
+                <element signature="e#0#33#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -79,6 +94,7 @@
         <option value="$PROJECT_DIR$/Assets/Scripts/Intro.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/CameraController.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Rotator.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/GameManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/PlayerController.cs" />
       </list>
     </option>
@@ -254,12 +270,12 @@
     <task active="true" id="Default" summary="Default task">
       <created>1476575502456</created>
       <updated>1476575502456</updated>
-      <workItem from="1476575506729" duration="3931000" />
+      <workItem from="1476575506729" duration="13572000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3931000" />
+    <option name="totallyTimeSpent" value="13572000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="42" width="1400" height="785" extended-state="0" />
@@ -372,11 +388,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9">
+          <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#33#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/PlayerController.cs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="29" column="46" selection-start-line="29" selection-start-column="46" selection-end-line="29" selection-end-column="46" />
-          <folding />
+        <state relative-caret-position="330">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
