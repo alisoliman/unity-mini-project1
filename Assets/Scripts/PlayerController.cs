@@ -1,5 +1,5 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -46,6 +46,9 @@ public class PlayerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.E)){
             GetComponent<Renderer>().material = gameManager.greenMaterial;
         }
+//        if (Input.GetKeyDown(KeyCode.Escape)){
+//            SceneManager.LoadScene("Pause");
+//        }
     }
 
 	void FixedUpdate() {
