@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
 
     // Floats
     public float speed;
+    private float hardnessLevel;
 
     // Rigid bodies
     private Rigidbody rb;
@@ -28,9 +29,10 @@ public class PlayerController : MonoBehaviour {
         // Initialisations
 	    rb = GetComponent<Rigidbody>();
         score = 0;
+        hardnessLevel = 0;
+        destroyCounter = 0;
         setCountText();
         movementVertical = new Vector3(0,0,2);
-        destroyCounter = 0;
 
         gameManager.instantiateField();
 

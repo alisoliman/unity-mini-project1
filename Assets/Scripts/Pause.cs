@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Pause : MonoBehaviour {
 
@@ -6,10 +8,17 @@ public class Pause : MonoBehaviour {
     public GameObject Canvas;
     public GameObject Camera;
 
+    public Button resumeButton;
+    public Button restartButton;
+    public Button quitButton;
+
     bool Paused = false;
 
     void Start(){
         Canvas.gameObject.SetActive (false);
+        resumeButton.GetComponent<Button>().onClick.AddListener(Resume);
+        restartButton.GetComponent<Button>().onClick.AddListener(RestartGame);
+        quitButton.GetComponent<Button>().onClick.AddListener(QuitGame);
     }
 
     void Update () {
@@ -36,10 +45,23 @@ public class Pause : MonoBehaviour {
         Canvas.gameObject.SetActive (false);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Paused = false;
 //        Camera.GetComponent<AudioSource>().Play ();
     }
 
-    void restartGame(){
-        Debug.Log("Here");
+    void RestartGame(){
+        Resume();
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.UnloadScene(currentScene);
+        SceneManager.LoadScene(currentScene.name);
+    }
+
+    void QuitGame(){
+        Resume();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Scene currentScene = SceneManager.GetActiveScene();
+        SceneManager.UnloadScene(currentScene);
+        SceneManager.LoadScene("Intro");
     }
 }    

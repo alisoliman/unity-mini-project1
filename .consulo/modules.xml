@@ -82,16 +82,23 @@
           <orderEntry type="dot-net-library" name="System.Core" />
           <orderEntry type="dot-net-library" name="System.Xml" />
           <orderEntry type="dot-net-library" name="System.Xml.Linq" />
+          <orderEntry type="module-library">
+            <library>
+              <binaries>
+                <root url="netdll://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Editor/Plugins/UnityEditorConsuloPlugin5.3.dll!/" />
+              </binaries>
+            </library>
+          </orderEntry>
         </module-layer>
       </module>
       <module name="Assembly-CSharp" current-layer="Default">
         <module-layer name="Default">
           <extension id="unity3d-child" />
           <extension id="unity3d-csharp-child" unsafe-code="false" language-version-module-name="" language-version-name="" />
-          <content url="file://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Scripts/Destroyer.cs" />
           <content url="file://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Scripts/CameraController.cs" />
+          <content url="file://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Scripts/Destroyer.cs" />
           <content url="file://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Scripts/GameManager.cs" />
-          <content url="file://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Scripts/Intro.cs" />
+          <content url="file://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Scripts/IntroController.cs" />
           <content url="file://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Scripts/Pause.cs" />
           <content url="file://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Scripts/PlayerController.cs" />
           <content url="file://$USER_HOME$/Development/UNI/Advanced Computer Lab - Unity/Mini Projects/unity-miny-project1/Assets/Scripts/Rotator.cs" />
