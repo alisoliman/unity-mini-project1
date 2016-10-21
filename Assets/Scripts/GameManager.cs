@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
 	}
 
     void changeColor(GameObject gameObject,Material material){
-        for (int i =0; i<transform.childCount ; i++){
+        for (int i =0; i<transform.childCount; i++){
             gameObject.transform.GetChild(i).gameObject.GetComponent<Renderer>().material = material;
         }
     }
