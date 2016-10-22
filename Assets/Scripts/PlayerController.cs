@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
 public class PlayerController : MonoBehaviour {
 
+
+    public GameObject maximumThroughput;
 
     public CharacterController controller;
     private Vector3 movementVector;
@@ -20,6 +23,7 @@ public class PlayerController : MonoBehaviour {
     private int countTriggers = 0;
     private int triggerToNextLevel = 30;
     private double score;
+    private bool playerCanDie;
     public Text scoreText;
 
 
@@ -43,6 +47,7 @@ public class PlayerController : MonoBehaviour {
 	    rb = GetComponent<Rigidbody>();
         score = 0;
         destroyCounter = 0;
+        playerCanDie = false;
         setCountText();
         currentFieldColor = gameManager.redMaterial.color;
 
@@ -58,19 +63,25 @@ public class PlayerController : MonoBehaviour {
         //Moving the Player
         movementVector = Vector3.zero;
         movementVector.x = Input.GetAxisRaw("Horizontal")*0.5f;
-        if (Input.GetKeyDown(KeyCode.Space)){
-            movementVector.y = 20.0f*speed*Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space) && controller.isGrounded){
+            movementVector.y = 10.0f;
         }
         else{
             if (controller.isGrounded) {
                 movementVector.y = -0.08f;
             }
             else{
-                movementVector.y -= 1.0f * Time.deltaTime;
+                movementVector.y -= 10.0f * Time.deltaTime;
             }
         }
 
-        movementVector.z = (speed+difficultyLevel)*Time.deltaTime;
+        if (playerCanDie && score == 0){
+            DontDestroyOnLoad(maximumThroughput);
+            SceneManager.LoadScene("GameOver");
+        }
+
+        movementVector.z = (speed + difficultyLevel) * Time.deltaTime;
+
 
 
         controller.Move(movementVector);
@@ -106,7 +117,11 @@ public class PlayerController : MonoBehaviour {
             Source.clip = cubeCollected;
             StartCoroutine(StartClip());
             Destroy(other.gameObject);
+            playerCanDie = true;
             score += 20;
+            if ((double)maximumThroughput.transform.position.x<score){
+                maximumThroughput.transform.position = new Vector3((float)score,0,0);
+            }
             setCountText();
         }
         if (other.gameObject.CompareTag("Purple Pick Up")){
@@ -151,6 +166,8 @@ public class PlayerController : MonoBehaviour {
     void setCountText(){
         scoreText.text = "Score: " + score.ToString();
     }
+
+
 
     IEnumerator StartClip() {
 
