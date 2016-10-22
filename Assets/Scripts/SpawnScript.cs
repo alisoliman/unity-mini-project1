@@ -7,6 +7,7 @@ public class SpawnScript : MonoBehaviour {
     public float spawnTime = 1.5f;
 
     public GameObject pickUps;
+    public GameObject purplePickUp;
 
     private PlayerController controller;
     private bool[] spawnPointAvailability;
@@ -18,10 +19,13 @@ public class SpawnScript : MonoBehaviour {
 
     void SpawnPickUps(){
 		int spawnIndex = Random.Range(0,spawnPoint.Length);
-
-		Collider collider = Physics.OverlapSphere(spawnPoint[spawnIndex].position,1)[0];
-		if (!collider.CompareTag("Pick Up"))
-            Instantiate(pickUps, spawnPoint[spawnIndex].position, pickUps.transform.rotation);
+        int luckyNumber = Random.Range(0,spawnPoint.Length);
+        if (luckyNumber.Equals(10)){
+            Instantiate(purplePickUp, spawnPoint[spawnIndex].position, pickUps.transform.rotation);
+        }
+        else {
+                Instantiate(pickUps, spawnPoint[spawnIndex].position, pickUps.transform.rotation);
+        }
 
     }
 

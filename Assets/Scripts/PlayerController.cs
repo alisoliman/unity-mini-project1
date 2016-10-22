@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,9 @@ public class PlayerController : MonoBehaviour {
 
     public CharacterController controller;
     private Vector3 movementVector;
+    private AudioSource Source;
+    public AudioClip cubeCollected;
+    public AudioClip originalSound;
 
 
     // Scores Calculations
@@ -21,7 +25,7 @@ public class PlayerController : MonoBehaviour {
 
     public GameManager gameManager;
     private int destroyCounter;
-    private Material currentFieldMaterial;
+    private Color currentFieldColor;
     private bool dividedScore = true;
 
     // Floats
@@ -34,12 +38,13 @@ public class PlayerController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         // Initialisations
+        Source = GetComponent<AudioSource>();
         controller = GetComponent<CharacterController>();
 	    rb = GetComponent<Rigidbody>();
         score = 0;
         destroyCounter = 0;
         setCountText();
-        currentFieldMaterial = gameManager.redMaterial;
+        currentFieldColor = gameManager.redMaterial.color;
 
 
         gameManager.instantiateField();
@@ -98,9 +103,19 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.CompareTag("Pick Up")){
+            Source.clip = cubeCollected;
+            StartCoroutine(StartClip());
             Destroy(other.gameObject);
             score += 20;
             setCountText();
+        }
+        if (other.gameObject.CompareTag("Purple Pick Up")){
+            Destroy(other.gameObject);
+            Source.clip = cubeCollected;
+            StartCoroutine(StartClip());
+            for (int i = 1; i < 4; i++){
+                gameManager.changeColor(gameManager.field[destroyCounter+i],gameManager.greyMaterial);
+            }
         }
         if (other.gameObject.CompareTag("Generate Trigger")){
             countTriggers += 1;
@@ -117,15 +132,17 @@ public class PlayerController : MonoBehaviour {
 
     void OnTriggerExit(Collider other) {
         if (other.gameObject.CompareTag("Generate Trigger")){
-            currentFieldMaterial = gameManager.field[destroyCounter+1].transform.GetChild(0).gameObject.GetComponent<Renderer>().sharedMaterial;
+            currentFieldColor = gameManager.field[destroyCounter+1].transform.GetChild(0).gameObject.GetComponent<Renderer>().sharedMaterial.color;
+            if (currentFieldColor.Equals(gameManager.greyMaterial.color) == false
+            && !gameObject.GetComponent<Renderer>().material.color.Equals(currentFieldColor)){
             decreaseScore();
+            }
         }
     }
 
     void decreaseScore(){
         //Checking the material and adjusting the score
-        if (gameObject.GetComponent<Renderer>().sharedMaterial != currentFieldMaterial
-        && currentFieldMaterial != gameManager.greyMaterial){
+        if (gameObject.GetComponent<Renderer>().material.Equals(currentFieldColor) == false){
             score = Math.Floor(score/2);
             setCountText();
         }
@@ -133,5 +150,13 @@ public class PlayerController : MonoBehaviour {
 
     void setCountText(){
         scoreText.text = "Score: " + score.ToString();
+    }
+
+    IEnumerator StartClip() {
+
+        Source.Play();
+        yield return new WaitForSeconds(Source.clip.length);
+        Source.clip = originalSound;
+        Source.Play();
     }
 }

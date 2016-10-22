@@ -34,7 +34,7 @@ public class Pause : MonoBehaviour {
 //        Cursor.visible = false;
 //        Cursor.lockState = CursorLockMode.Locked;
         Paused = false;
-//        Camera.GetComponent<AudioSource>().Play ();
+        Camera.GetComponent<AudioSource>().Play ();
     }
 
     void RestartGame(){
@@ -45,12 +45,8 @@ public class Pause : MonoBehaviour {
     }
 
     void QuitGame(){
-        Resume();
-//        Cursor.visible = true;
-//        Cursor.lockState = CursorLockMode.None;
-        Scene currentScene = SceneManager.GetActiveScene();
-        SceneManager.UnloadScene(currentScene);
         SceneManager.LoadScene("Intro");
+        Resume();
     }
 
     public void pauseClicked(){
@@ -59,14 +55,14 @@ public class Pause : MonoBehaviour {
             Canvas.gameObject.SetActive(false);
 //            Cursor.visible = false;
 //            Cursor.lockState = CursorLockMode.Locked;
-            //                Camera.GetComponent<AudioSource>().Play ();
+               Camera.GetComponent<AudioSource>().Play ();
             Paused = false;
         } else {
             Time.timeScale = 0.0f;
             Canvas.gameObject.SetActive(true);
 //            Cursor.visible = true;
 //            Cursor.lockState = CursorLockMode.None;
-            //                Camera.GetComponent<AudioSource>().Pause ();
+            Camera.GetComponent<AudioSource>().Pause ();
             Paused = true;
         }
     }
